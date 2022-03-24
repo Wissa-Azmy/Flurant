@@ -27,6 +27,11 @@ class App {
           bodyLarge: const TextStyle(
             color: Color.fromRGBO(20, 51, 51, 1),
           ),
+          titleLarge: const TextStyle(
+            color: Colors.black,
+            fontSize: 28,
+            fontFamily: 'RobotoCondensed',
+          ),
           titleMedium: const TextStyle(
             fontSize: 22,
             fontFamily: 'RobotoCondensed',
