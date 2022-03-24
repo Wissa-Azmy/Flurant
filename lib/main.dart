@@ -1,6 +1,4 @@
-import 'package:flurant/screens/categories_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'common/app.dart';
 
 void main() {
@@ -17,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flurant',
       theme: App.theme,
-      home: const CategoriesScreen(),
+      routes: App.routes,
     );
   }
 }

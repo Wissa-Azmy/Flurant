@@ -1,3 +1,5 @@
+import 'package:flurant/screens/categories_screen.dart';
+import 'package:flurant/screens/meals_screen.dart';
 import 'package:flutter/material.dart';
 
 class App {
@@ -5,6 +7,7 @@ class App {
 
   const App({Key? key, required this.context});
 
+// MARK: - ThemeData
   static ThemeData get theme {
     return ThemeData(
       primarySwatch: Colors.blue,
@@ -15,6 +18,7 @@ class App {
     );
   }
 
+// MARK: - TextTheme
   static TextTheme get textTheme {
     return ThemeData.light().textTheme.copyWith(
           bodyMedium: const TextStyle(
@@ -30,7 +34,14 @@ class App {
         );
   }
 
+// MARK: - ColorScheme
   static ColorScheme get colorScheme {
     return ThemeData.light().colorScheme.copyWith(secondary: Colors.amber);
   }
+
+// MARK: - Routes
+  static Map<String, Widget Function(BuildContext)> routes = {
+    '/': (conetxt) => const CategoriesScreen(),
+    MealsScreen.routeName: ((context) => const MealsScreen())
+  };
 }

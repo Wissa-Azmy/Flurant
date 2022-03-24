@@ -1,16 +1,19 @@
 import 'package:flurant/common/app.dart';
+import 'package:flurant/models/category.dart';
 import 'package:flutter/material.dart';
 
 class MealsScreen extends StatelessWidget {
-  final String categoryName;
+  static const String routeName = 'meals-screen';
 
-  const MealsScreen({Key? key, required this.categoryName}) : super(key: key);
+  const MealsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final category = ModalRoute.of(context)?.settings.arguments as Category;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryName),
+        title: Text(category.title),
       ),
       body: Center(
           child: Text(
