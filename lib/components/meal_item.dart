@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
+import '../screens/item_detail_screen.dart';
 import 'card_image.dart';
 import 'card_title_strip.dart';
 import 'info_icon.dart';
@@ -10,10 +11,17 @@ class MealItem extends StatelessWidget {
 
   const MealItem({Key? key, required this.meal}) : super(key: key);
 
+  void selectItem(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      ItemDetailScreen.routeName,
+      arguments: meal,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (() {}),
+      onTap: () => selectItem(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 5,

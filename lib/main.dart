@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flurant',
       theme: App.theme,
       routes: App.routes,
+      onUnknownRoute: (settings) {
+        return App.defaultRoute;
+      },
     );
   }
 }

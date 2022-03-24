@@ -1,4 +1,5 @@
 import 'package:flurant/screens/categories_screen.dart';
+import 'package:flurant/screens/item_detail_screen.dart';
 import 'package:flurant/screens/meals_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -45,8 +46,13 @@ class App {
   }
 
 // MARK: - Routes
-  static Map<String, Widget Function(BuildContext)> routes = {
+  static final Map<String, Widget Function(BuildContext)> routes = {
     '/': (conetxt) => const CategoriesScreen(),
-    MealsScreen.routeName: ((context) => const MealsScreen())
+    MealsScreen.routeName: (context) => const MealsScreen(),
+    ItemDetailScreen.routeName: (context) => const ItemDetailScreen()
   };
+
+  static final MaterialPageRoute defaultRoute = MaterialPageRoute(
+    builder: (BuildContext context) => const CategoriesScreen(),
+  );
 }
