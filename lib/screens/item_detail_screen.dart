@@ -1,6 +1,8 @@
 import 'package:flurant/common/app.dart';
 import 'package:flutter/material.dart';
 
+import '../components/simple_list.dart';
+import '../components/text_capsule.dart';
 import '../models/meal.dart';
 
 class ItemDetailScreen extends StatelessWidget {
@@ -13,11 +15,39 @@ class ItemDetailScreen extends StatelessWidget {
     final meal = ModalRoute.of(context)?.settings.arguments as Meal;
 
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text(
-          meal.title,
-          style: App.textTheme.titleLarge,
+      appBar: AppBar(title: Text(meal.title)),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                meal.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const TextCapsule('Ingrediants'),
+            Container(
+                height: 300,
+                margin: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.lightBlueAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: SimpleList(items: meal.ingredients)),
+            const TextCapsule('Steps'),
+            Container(
+              height: 300,
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: SimpleList(items: meal.steps),
+            )
+          ],
         ),
       ),
     );
