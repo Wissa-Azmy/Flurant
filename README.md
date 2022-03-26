@@ -1,6 +1,6 @@
-# flurant
+# Flurant
 
-A new Flutter project.
+A Flutter Restaurant App.
 
 ## Getting Started
 
