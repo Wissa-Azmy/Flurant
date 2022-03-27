@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ToDoListTile extends StatefulWidget {
-  final item;
+  final dynamic item;
   const ToDoListTile({Key? key, required this.item}) : super(key: key);
 
   @override

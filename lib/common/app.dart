@@ -1,6 +1,7 @@
 import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
 import 'package:flurant/screens/meals_screen.dart';
+import 'package:flurant/screens/tab_bar_screen.dart';
 import 'package:flutter/material.dart';
 
 class App {
@@ -47,7 +48,7 @@ class App {
 
 // MARK: - Routes
   static final Map<String, Widget Function(BuildContext)> routes = {
-    '/': (conetxt) => const CategoriesScreen(),
+    '/': (conetxt) => const TabBarScreen(),
     MealsScreen.routeName: (context) => const MealsScreen(),
     ItemDetailScreen.routeName: (context) => const ItemDetailScreen()
   };

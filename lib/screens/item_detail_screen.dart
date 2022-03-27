@@ -32,6 +32,7 @@ class ItemDetailScreen extends StatelessWidget {
             Container(
                 height: 300,
                 margin: const EdgeInsets.all(16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 decoration: BoxDecoration(
                   color: Colors.lightBlueAccent,
                   borderRadius: BorderRadius.circular(10),
@@ -41,6 +42,7 @@ class ItemDetailScreen extends StatelessWidget {
             Container(
               height: 300,
               margin: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               decoration: BoxDecoration(
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(10),
