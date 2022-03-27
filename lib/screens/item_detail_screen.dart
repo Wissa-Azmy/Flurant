@@ -1,4 +1,3 @@
-import 'package:flurant/common/app.dart';
 import 'package:flutter/material.dart';
 
 import '../components/simple_list.dart';

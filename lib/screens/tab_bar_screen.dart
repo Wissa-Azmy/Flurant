@@ -13,7 +13,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
   int _selectedTabIndex = 0;
   final List<Widget> _screens = const [CategoriesScreen(), FavoritesScreen()];
 
-  final List<BottomNavigationBarItem> _items = const [
+  final List<BottomNavigationBarItem> _barItems = const [
     BottomNavigationBarItem(label: 'Categories', icon: Icon(Icons.category)),
     BottomNavigationBarItem(label: 'Favorites', icon: Icon(Icons.star))
   ];
@@ -27,9 +27,9 @@ class _TabBarScreenState extends State<TabBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(_items[_selectedTabIndex].label!)),
+      appBar: AppBar(title: Text(_barItems[_selectedTabIndex].label!)),
       bottomNavigationBar: BottomNavigationBar(
-        items: _items,
+        items: _barItems,
         onTap: _selectTap,
         currentIndex: _selectedTabIndex,
       ),
