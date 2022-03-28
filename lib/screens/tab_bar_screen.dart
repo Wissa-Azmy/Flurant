@@ -34,6 +34,9 @@ class _TabBarScreenState extends State<TabBarScreen> {
         currentIndex: _selectedTabIndex,
       ),
       body: _screens[_selectedTabIndex],
+      drawer: const Drawer(
+        child: Center(child: Text('Drawer')),
+      ),
     );
   }
 }

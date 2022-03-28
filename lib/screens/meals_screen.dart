@@ -19,9 +19,6 @@ class MealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(category.title),
       ),
-      drawer: const Drawer(
-        child: Center(child: Text('Drawer')),
-      ),
       body: ListView.builder(
         itemBuilder: (context, index) => MealItem(meal: categoryMeals[index]),
         itemCount: categoryMeals.length,
