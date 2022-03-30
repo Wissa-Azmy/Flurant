@@ -2,6 +2,8 @@ import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/favorites_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../components/app_drawer.dart';
+
 class TabBarScreen extends StatefulWidget {
   const TabBarScreen({Key? key}) : super(key: key);
 
@@ -34,9 +36,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
         currentIndex: _selectedTabIndex,
       ),
       body: _screens[_selectedTabIndex],
-      drawer: const Drawer(
-        child: Center(child: Text('Drawer')),
-      ),
+      drawer: const AppDrawer(),
     );
   }
 }
