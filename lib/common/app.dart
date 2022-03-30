@@ -1,4 +1,5 @@
 import 'package:flurant/screens/categories_screen.dart';
+import 'package:flurant/screens/filters_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
 import 'package:flurant/screens/meals_screen.dart';
 import 'package:flurant/screens/tab_bar_screen.dart';
@@ -50,7 +51,8 @@ class App {
   static final Map<String, Widget Function(BuildContext)> routes = {
     '/': (conetxt) => const TabBarScreen(),
     MealsScreen.routeName: (context) => const MealsScreen(),
-    ItemDetailScreen.routeName: (context) => const ItemDetailScreen()
+    ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
+    FiltersScreen.routeName: (context) => const FiltersScreen()
   };
 
   static final MaterialPageRoute defaultRoute = MaterialPageRoute(
