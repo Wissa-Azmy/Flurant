@@ -1,6 +1,7 @@
 import 'package:flurant/components/category_item.dart';
-import 'package:flurant/dummy_data.dart';
+import 'package:flurant/providers/categories_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -9,7 +10,8 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView(
       padding: const EdgeInsets.all(8),
-      children: DUMMY_CATEGORIES
+      children: Provider.of<CategoriesProvider>(context)
+          .categories
           .map(
             (category) => CategoryItem(category: category),
           )

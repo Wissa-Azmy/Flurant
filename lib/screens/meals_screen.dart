@@ -1,7 +1,8 @@
 import 'package:flurant/components/meal_item.dart';
-import 'package:flurant/dummy_data.dart';
 import 'package:flurant/models/category.dart';
+import 'package:flurant/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MealsScreen extends StatelessWidget {
   static const String routeName = 'meals-screen';
@@ -11,7 +12,8 @@ class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context)?.settings.arguments as Category;
-    final categoryMeals = DUMMY_MEALS
+    final categoryMeals = Provider.of<MealsProvider>(context)
+        .meals
         .where((element) => element.categories.contains(category.id))
         .toList();
 

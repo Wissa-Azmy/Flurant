@@ -1,4 +1,7 @@
+import 'package:flurant/providers/categories_provider.dart';
+import 'package:flurant/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'common/app.dart';
 
 void main() {
@@ -11,12 +14,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flurant',
-      theme: App.theme,
-      routes: App.routes,
-      onUnknownRoute: (settings) => App.defaultRoute,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CategoriesProvider()),
+        ChangeNotifierProvider(create: (_) => MealsProvider())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flurant',
+        theme: App.theme,
+        routes: App.routes,
+        onUnknownRoute: (settings) => App.defaultRoute,
+      ),
     );
   }
 }
