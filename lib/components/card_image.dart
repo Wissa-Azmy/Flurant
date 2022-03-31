@@ -16,10 +16,17 @@ class CardImage extends StatelessWidget {
         topRight: Radius.circular(15),
       ),
       child: Image.network(
-        imageUrl,
+        'imageUrl',
         height: 250,
         width: double.infinity,
         fit: BoxFit.cover,
+        errorBuilder: (context, obj, stack) {
+          return Image.asset(
+            'assets/images/default.png',
+            width: double.infinity,
+            fit: BoxFit.cover,
+          );
+        },
       ),
     );
   }
