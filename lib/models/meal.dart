@@ -20,6 +20,7 @@ class Meal with ChangeNotifier {
   final List<String> ingredients;
   final List<String> steps;
   final int duration;
+  final double price;
   final Complexity complexity;
   final Affordability affordability;
   final bool isGlutenFree;
@@ -36,6 +37,7 @@ class Meal with ChangeNotifier {
       required this.ingredients,
       required this.steps,
       required this.duration,
+      required this.price,
       required this.complexity,
       required this.affordability,
       required this.isGlutenFree,

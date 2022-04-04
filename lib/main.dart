@@ -1,3 +1,4 @@
+import 'package:flurant/providers/cart_provider.dart';
 import 'package:flurant/providers/categories_provider.dart';
 import 'package:flurant/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CategoriesProvider()),
-        ChangeNotifierProvider(create: (_) => MealsProvider())
+        ChangeNotifierProvider(create: (_) => MealsProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
