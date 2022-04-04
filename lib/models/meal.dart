@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum Complexity {
   simple,
   challenging,
@@ -10,7 +12,7 @@ enum Affordability {
   luxurious,
 }
 
-class Meal {
+class Meal with ChangeNotifier {
   final String id;
   final List<String> categories;
   final String title;
@@ -62,5 +64,11 @@ class Meal {
       case Affordability.luxurious:
         return 'Luxurious';
     }
+  }
+
+  void toggleFavourite() {
+    isFavourite = !isFavourite;
+
+    notifyListeners();
   }
 }

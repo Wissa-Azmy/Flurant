@@ -1,6 +1,6 @@
 import 'package:flurant/providers/dummy_data.dart';
 import 'package:flurant/models/category.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' hide Category;
 
 class CategoriesProvider with ChangeNotifier {
   List<Category> _categories = DUMMY_CATEGORIES;

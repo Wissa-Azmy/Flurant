@@ -12,17 +12,18 @@ class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context)?.settings.arguments as Category;
-    final categoryMeals = Provider.of<MealsProvider>(context)
-        .meals
-        .where((element) => element.categories.contains(category.id))
-        .toList();
+    final categoryMeals =
+        Provider.of<MealsProvider>(context).mealsWith(category.id);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(category.title),
       ),
       body: ListView.builder(
-        itemBuilder: (context, index) => MealItem(meal: categoryMeals[index]),
+        itemBuilder: (context, index) => ChangeNotifierProvider.value(
+          value: categoryMeals[index],
+          child: MealItem(),
+        ),
         itemCount: categoryMeals.length,
       ),
     );
