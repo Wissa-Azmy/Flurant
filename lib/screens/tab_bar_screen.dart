@@ -3,6 +3,7 @@ import 'package:flurant/screens/favorites_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../components/app drawer/app_drawer.dart';
+import '../components/popup_menu.dart';
 
 class TabBarScreen extends StatefulWidget {
   const TabBarScreen({Key? key}) : super(key: key);
@@ -29,7 +30,10 @@ class _TabBarScreenState extends State<TabBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(_barItems[_selectedTabIndex].label!)),
+      appBar: AppBar(
+        title: Text(_barItems[_selectedTabIndex].label!),
+        actions: const [PopupMenu()],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: _barItems,
         onTap: _selectTap,
