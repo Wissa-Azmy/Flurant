@@ -21,8 +21,9 @@ class ItemDetailScreen extends StatelessWidget {
             SizedBox(
               height: 300,
               width: double.infinity,
-              child: Image.network(
-                meal.imageUrl,
+              child: Image.asset(
+                'assets/images/default.png',
+                width: double.infinity,
                 fit: BoxFit.cover,
               ),
             ),

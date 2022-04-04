@@ -15,18 +15,10 @@ class CardImage extends StatelessWidget {
         topLeft: Radius.circular(15),
         topRight: Radius.circular(15),
       ),
-      child: Image.network(
-        'imageUrl',
-        height: 250,
+      child: Image.asset(
+        'assets/images/default.png',
         width: double.infinity,
         fit: BoxFit.cover,
-        errorBuilder: (context, obj, stack) {
-          return Image.asset(
-            'assets/images/default.png',
-            width: double.infinity,
-            fit: BoxFit.cover,
-          );
-        },
       ),
     );
   }
