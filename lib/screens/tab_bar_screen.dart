@@ -23,8 +23,8 @@ class _TabBarScreenState extends State<TabBarScreen> {
 
   final List<BottomNavigationBarItem> _barItems = const [
     BottomNavigationBarItem(label: 'Categories', icon: Icon(Icons.category)),
-    BottomNavigationBarItem(label: 'Favorites', icon: Icon(Icons.star)),
-    BottomNavigationBarItem(label: 'Cart', icon: Icon(Icons.shopping_cart))
+    BottomNavigationBarItem(label: 'Cart', icon: Icon(Icons.shopping_cart)),
+    BottomNavigationBarItem(label: 'Orders', icon: Icon(Icons.payment)),
   ];
 
   void _selectTap(int index) {
