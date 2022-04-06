@@ -1,3 +1,4 @@
+import 'package:flurant/screens/cart_screen.dart';
 import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/filters_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
@@ -52,7 +53,8 @@ class App {
     '/': (conetxt) => const TabBarScreen(),
     MealsScreen.routeName: (context) => const MealsScreen(),
     ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
-    FiltersScreen.routeName: (context) => const FiltersScreen()
+    FiltersScreen.routeName: (context) => const FiltersScreen(),
+    CartScreen.routeName: (context) => const CartScreen()
   };
 
   static final MaterialPageRoute defaultRoute = MaterialPageRoute(
