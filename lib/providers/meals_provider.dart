@@ -17,4 +17,10 @@ class MealsProvider with ChangeNotifier {
   List<Meal> mealsWith(String categoryId) {
     return meals.where((meal) => meal.categories.contains(categoryId)).toList();
   }
+
+  void toggleFavourite(String mealId) {
+    _meals.where((element) => element.id == mealId).first.toggleFavourite();
+
+    notifyListeners();
+  }
 }

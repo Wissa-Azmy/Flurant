@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
+import 'package:flurant/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _mealsProvider = Provider.of<MealsProvider>(context, listen: false);
     final _meal = Provider.of<Meal>(context, listen: false);
 
     return InkWell(
@@ -38,7 +40,7 @@ class MealItem extends StatelessWidget {
                 Consumer<Meal>(
                   builder: (BuildContext context, meal, Widget? child) {
                     return InkWell(
-                      onTap: meal.toggleFavourite,
+                      onTap: () => _mealsProvider.toggleFavourite(meal.id),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Icon(

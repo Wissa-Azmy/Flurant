@@ -9,14 +9,14 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favouriteMeals = Provider.of<MealsProvider>(context).favouriteMeals;
+    final mealsProvider = Provider.of<MealsProvider>(context);
 
     return ListView.builder(
       itemBuilder: (context, index) => ChangeNotifierProvider.value(
-        value: favouriteMeals[index],
-        child: MealItem(),
+        value: mealsProvider.favouriteMeals[index],
+        child: MealItem(key: ValueKey(mealsProvider.favouriteMeals[index].id)),
       ),
-      itemCount: favouriteMeals.length,
+      itemCount: mealsProvider.favouriteMeals.length,
     );
   }
 }
