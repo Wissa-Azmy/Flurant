@@ -3,8 +3,9 @@ import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/favorites_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../components/app drawer/app_drawer.dart';
-import '../components/popup_menu.dart';
+import 'app drawer/app_drawer.dart';
+import 'components/popup_menu.dart';
+import 'components/cart_button.dart';
 
 class TabBarScreen extends StatefulWidget {
   const TabBarScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
 
   final List<BottomNavigationBarItem> _barItems = const [
     BottomNavigationBarItem(label: 'Categories', icon: Icon(Icons.category)),
-    BottomNavigationBarItem(label: 'Cart', icon: Icon(Icons.shopping_cart)),
+    BottomNavigationBarItem(label: 'Favourites', icon: Icon(Icons.star)),
     BottomNavigationBarItem(label: 'Orders', icon: Icon(Icons.payment)),
   ];
 
@@ -38,7 +39,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_barItems[_selectedTabIndex].label!),
-        actions: const [PopupMenu()],
+        actions: const [PopupMenu(), CartButton()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: _barItems,

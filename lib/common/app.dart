@@ -2,7 +2,7 @@ import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/filters_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
 import 'package:flurant/screens/meals_screen.dart';
-import 'package:flurant/screens/tab_bar_screen.dart';
+import 'package:flurant/screens/tab_bar_screen/tab_bar_screen.dart';
 import 'package:flutter/material.dart';
 
 class App {
