@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/cart_provider.dart';
 import '../../cart_screen.dart';
-import 'badge.dart';
+import '../../../components/badge.dart';
 
 class CartButton extends StatelessWidget {
   const CartButton({Key? key}) : super(key: key);

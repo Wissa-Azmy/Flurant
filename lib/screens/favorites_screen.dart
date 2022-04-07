@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../components/meal_item.dart';
+import 'meals_screen/components/meal_item.dart';
 import '../providers/meals_provider.dart';
 
 class FavoritesScreen extends StatelessWidget {

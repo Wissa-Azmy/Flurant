@@ -1,4 +1,4 @@
-import 'package:flurant/components/meal_item.dart';
+import 'package:flurant/screens/meals_screen/components/meal_item.dart';
 import 'package:flurant/models/category.dart';
 import 'package:flurant/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
