@@ -1,6 +1,6 @@
-import 'package:flurant/screens/cart_screen.dart';
 import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/favorites_screen.dart';
+import 'package:flurant/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'app drawer/app_drawer.dart';
@@ -19,7 +19,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
   final List<Widget> _screens = const [
     CategoriesScreen(),
     FavoritesScreen(),
-    CartScreen()
+    OrdersScreen()
   ];
 
   final List<BottomNavigationBarItem> _barItems = const [
@@ -39,7 +39,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_barItems[_selectedTabIndex].label!),
-        actions: const [PopupMenu(), CartButton()],
+        actions: const [PopupMenu(), CartButton(), SizedBox(width: 8)],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: _barItems,
