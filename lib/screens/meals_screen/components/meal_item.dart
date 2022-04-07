@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
-import 'package:flurant/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/meal.dart';
-import '../screens/item_detail_screen.dart';
-import 'card_image.dart';
-import 'card_title_strip.dart';
-import 'info_icon.dart';
+import '../../../models/meal.dart';
+import '../../item_detail_screen.dart';
+import '../../../components/card_image.dart';
+import '../../../components/card_title_strip.dart';
+import '../../../components/info_icon.dart';
+import 'cart_icon_button.dart';
+import 'favourite_icon_button.dart';
 
 class MealItem extends StatelessWidget {
   MealItem({Key? key}) : super(key: key);
@@ -22,7 +23,6 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _mealsProvider = Provider.of<MealsProvider>(context, listen: false);
     final _meal = Provider.of<Meal>(context, listen: false);
 
     return InkWell(
@@ -38,21 +38,13 @@ class MealItem extends StatelessWidget {
                 CardImage(imageUrl: _meal.imageUrl),
                 CardTitleStrip(title: _meal.title),
                 Consumer<Meal>(
-                  builder: (BuildContext context, meal, Widget? child) {
-                    return InkWell(
-                      onTap: () => _mealsProvider.toggleFavourite(meal.id),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Icon(
-                          meal.isFavourite
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          size: 32,
-                          color: Colors.red,
-                        ),
-                      ),
-                    );
-                  },
+                  builder: (BuildContext context, meal, Widget? child) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FavouriteIconButton(meal: meal),
+                      CartIconButton(meal: meal),
+                    ],
+                  ),
                 ),
               ],
             ),
