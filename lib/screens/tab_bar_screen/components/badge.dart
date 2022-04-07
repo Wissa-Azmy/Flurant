@@ -1,3 +1,4 @@
+import 'package:flurant/common/app.dart';
 import 'package:flutter/material.dart';
 
 class Badge extends StatelessWidget {
@@ -19,23 +20,19 @@ class Badge extends StatelessWidget {
       children: [
         child,
         Positioned(
-          right: 8,
+          right: 4,
           top: 8,
           child: Container(
-            padding: const EdgeInsets.all(2.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: color ?? Theme.of(context).colorScheme.secondary,
-            ),
-            constraints: const BoxConstraints(
-              minWidth: 16,
-              minHeight: 16,
-            ),
-            child: Text(
-              value,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 10,
+            padding: const EdgeInsets.only(bottom: 3.0, left: 3),
+            child: CircleAvatar(
+              radius: 10,
+              backgroundColor: color ?? App.colorScheme.secondary,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  FittedBox(
+                      child: Text(value, style: App.textTheme.labelSmall)),
+                ],
               ),
             ),
           ),

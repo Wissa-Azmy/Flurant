@@ -25,22 +25,26 @@ class App {
 // MARK: - TextTheme
   static TextTheme get textTheme {
     return ThemeData.light().textTheme.copyWith(
-          bodyMedium: const TextStyle(
-            color: Color.fromRGBO(20, 51, 51, 1),
-          ),
-          bodyLarge: const TextStyle(
-            color: Color.fromRGBO(20, 51, 51, 1),
-          ),
-          titleLarge: const TextStyle(
-            color: Colors.black,
-            fontSize: 28,
-            fontFamily: 'RobotoCondensed',
-          ),
-          titleMedium: const TextStyle(
-            fontSize: 22,
-            fontFamily: 'RobotoCondensed',
-          ),
-        );
+        bodyMedium: const TextStyle(
+          color: Color.fromRGBO(20, 51, 51, 1),
+        ),
+        bodyLarge: const TextStyle(
+          color: Color.fromRGBO(20, 51, 51, 1),
+        ),
+        titleLarge: const TextStyle(
+          color: Colors.black,
+          fontSize: 28,
+          fontFamily: 'RobotoCondensed',
+        ),
+        titleMedium: const TextStyle(
+          fontSize: 22,
+          fontFamily: 'RobotoCondensed',
+        ),
+        labelSmall: const TextStyle(
+          fontSize: 14,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ));
   }
 
 // MARK: - ColorScheme
