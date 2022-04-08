@@ -6,7 +6,7 @@ import '../models/meal.dart';
 class CartProvider with ChangeNotifier {
   Map<String, CartItem> _items = {};
 
-  Map<String, CartItem> get items => _items;
+  List<CartItem> get items => _items.values.toList();
 
   void addItem(Meal product) {
     if (_items.containsKey(product.id)) {
@@ -62,18 +62,18 @@ class CartProvider with ChangeNotifier {
 
   int get itemsCount {
     int total = 0;
-    items.forEach((key, value) {
-      total += value.quantity;
-    });
+    for (var item in items) {
+      total += item.quantity;
+    }
 
     return total;
   }
 
   double get totalAmount {
     double total = 0;
-    items.forEach((key, value) {
-      total += value.quantity * value.product.price;
-    });
+    for (var item in items) {
+      total += item.quantity * item.product.price;
+    }
 
     return total;
   }
