@@ -1,4 +1,4 @@
-import 'package:flurant/screens/cart_screen.dart';
+import 'package:flurant/screens/cart_screen/cart_screen.dart';
 import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/filters_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';

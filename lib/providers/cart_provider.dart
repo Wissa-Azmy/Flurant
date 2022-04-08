@@ -45,7 +45,7 @@ class CartProvider with ChangeNotifier {
       productId,
       (item) => CartItem(
         product: item.product,
-        quantity: item.quantity > 0 ? item.quantity - 1 : 0,
+        quantity: item.quantity > 1 ? item.quantity - 1 : 1,
       ),
     );
 

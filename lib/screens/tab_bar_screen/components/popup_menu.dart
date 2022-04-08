@@ -5,10 +5,12 @@ class PopupMenu extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  void doNothing(Object? value) {}
+
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      onSelected: (value) => print(value),
+      onSelected: (value) => doNothing(value),
       itemBuilder: (_) => const [
         PopupMenuItem(
           child: Text('data'),

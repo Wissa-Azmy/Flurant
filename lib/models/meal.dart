@@ -31,6 +31,7 @@ class Meal with ChangeNotifier {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+  // int quantity;
   bool isFavourite;
 
   Meal(
