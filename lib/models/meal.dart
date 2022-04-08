@@ -12,6 +12,8 @@ enum Affordability {
   luxurious,
 }
 
+enum Brand { apple, samsung, sony }
+
 class Meal with ChangeNotifier {
   final String id;
   final List<String> categories;
@@ -21,6 +23,8 @@ class Meal with ChangeNotifier {
   final List<String> steps;
   final int duration;
   final double price;
+  // final double retailPrice;
+  // final Brand brand;
   final Complexity complexity;
   final Affordability affordability;
   final bool isGlutenFree;
@@ -67,6 +71,8 @@ class Meal with ChangeNotifier {
         return 'Luxurious';
     }
   }
+
+  String get priceText => '${price.toString()} LE';
 
   void toggleFavourite() {
     isFavourite = !isFavourite;
