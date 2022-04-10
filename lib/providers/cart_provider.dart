@@ -11,11 +11,10 @@ class CartProvider with ChangeNotifier {
   void addItem(Meal product) {
     if (!isInStock(product)) return;
 
-    if (_items.containsKey(product.id)) {
+    if (isInCart(product.id)) {
       increaseQuantity(product.id);
     } else {
-      _items.putIfAbsent(
-          product.id, () => CartItem(product: product, quantity: 1));
+      addToCart(product);
     }
     notifyListeners();
   }
@@ -26,8 +25,15 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void addToCart(Meal product) {
+    _items.putIfAbsent(
+      product.id,
+      () => CartItem(product: product, quantity: 1),
+    );
+  }
+
   void increaseQuantity(String productId) {
-    if (!_items.containsKey(productId)) return;
+    if (!isInCart(productId)) return;
     final item =
         _items.entries.firstWhere((element) => element.key == productId).value;
 
@@ -41,12 +47,16 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool isInCart(String productId) {
+    return _items.containsKey(productId);
+  }
+
   bool isInStock(Meal product) {
     return product.quantity > 1;
   }
 
   void decreaseQuantity(String productId) {
-    if (!_items.containsKey(productId)) return;
+    if (!isInCart(productId)) return;
     final item =
         _items.entries.firstWhere((element) => element.key == productId).value;
 
@@ -65,10 +75,6 @@ class CartProvider with ChangeNotifier {
 
   int itemQuantity(String productId) {
     return _items[productId]?.quantity ?? 0;
-  }
-
-  bool isInCart(String productId) {
-    return _items.containsKey(productId);
   }
 
   int get itemsCount {
