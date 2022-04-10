@@ -31,7 +31,7 @@ class Meal with ChangeNotifier {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
-  // int quantity;
+  int quantity;
   bool isFavourite;
 
   Meal(
@@ -49,6 +49,7 @@ class Meal with ChangeNotifier {
       required this.isVegan,
       required this.isVegetarian,
       required this.isLactoseFree,
+      this.quantity = 0,
       this.isFavourite = false});
 
   String get complexityText {

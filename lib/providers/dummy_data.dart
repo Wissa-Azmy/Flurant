@@ -122,6 +122,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: false,
+    quantity: 13,
   ),
   Meal(
     id: 'm3',
@@ -155,6 +156,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: true,
+    quantity: 15,
   ),
   Meal(
     id: 'm4',
@@ -191,6 +193,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: false,
+    quantity: 5,
   ),
   Meal(
     id: 'm5',
@@ -265,6 +268,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
+    quantity: 20,
   ),
   Meal(
     id: 'm7',
@@ -297,6 +301,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
+    quantity: 25,
   ),
   Meal(
     id: 'm8',
@@ -331,6 +336,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: true,
+    quantity: 17,
   ),
   Meal(
     id: 'm9',
@@ -381,6 +387,7 @@ final DUMMY_MEALS = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
+    quantity: 18,
   ),
   Meal(
     id: 'm10',
@@ -416,5 +423,6 @@ final DUMMY_MEALS = [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+    quantity: 50,
   ),
 ];

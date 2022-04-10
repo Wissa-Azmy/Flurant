@@ -9,11 +9,10 @@ class CartProvider with ChangeNotifier {
   List<CartItem> get items => _items.values.toList();
 
   void addItem(Meal product) {
+    if (!isInStock(product)) return;
+
     if (_items.containsKey(product.id)) {
-      _items.update(
-        product.id,
-        (item) => CartItem(product: item.product, quantity: item.quantity + 1),
-      );
+      increaseQuantity(product.id);
     } else {
       _items.putIfAbsent(
           product.id, () => CartItem(product: product, quantity: 1));
@@ -29,6 +28,10 @@ class CartProvider with ChangeNotifier {
 
   void increaseQuantity(String productId) {
     if (!_items.containsKey(productId)) return;
+    final item =
+        _items.entries.firstWhere((element) => element.key == productId).value;
+
+    if (item.quantity == item.product.quantity) return;
 
     _items.update(
       productId,
@@ -38,14 +41,22 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool isInStock(Meal product) {
+    return product.quantity > 1;
+  }
+
   void decreaseQuantity(String productId) {
     if (!_items.containsKey(productId)) return;
+    final item =
+        _items.entries.firstWhere((element) => element.key == productId).value;
+
+    if (item.quantity == 1) return;
 
     _items.update(
       productId,
       (item) => CartItem(
         product: item.product,
-        quantity: item.quantity > 1 ? item.quantity - 1 : 1,
+        quantity: item.quantity - 1,
       ),
     );
 

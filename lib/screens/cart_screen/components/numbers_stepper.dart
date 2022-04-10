@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../common/app.dart';
 import '../../../models/cart_item.dart';
 import '../../../providers/cart_provider.dart';
+import 'stepper_button.dart';
 
 class NumbersStepper extends StatelessWidget {
   final String title;
@@ -11,7 +12,7 @@ class NumbersStepper extends StatelessWidget {
 
   Widget buildQuantityText(BuildContext context, CartItem item, Widget? child) {
     return Text(
-      item.quantity.toString(),
+      '${item.quantity.toString()} / ${item.product.quantity.toString()}',
       style: App.textTheme.titleSmall,
     );
   }
