@@ -20,6 +20,22 @@ class OrdersProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  double get totalAmount {
+    double total = 0;
+    for (var order in _orders) {
+      total += order.amount;
+    }
+    return total;
+  }
+
+  double get netProfit {
+    double total = 0;
+    for (var order in _orders) {
+      total += order.netProfit;
+    }
+    return total;
+  }
+
   void remove(Order order) {
     _orders.remove(order);
     notifyListeners();
