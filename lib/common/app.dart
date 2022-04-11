@@ -62,7 +62,7 @@ class App {
     MealsScreen.routeName: (context) => const MealsScreen(),
     ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
     FiltersScreen.routeName: (context) => const FiltersScreen(),
-    CartScreen.routeName: (context) => const CartScreen()
+    CartScreen.routeName: (context) => CartScreen()
   };
 
   static final MaterialPageRoute defaultRoute = MaterialPageRoute(

@@ -1,6 +1,7 @@
 import 'package:flurant/providers/cart_provider.dart';
 import 'package:flurant/providers/categories_provider.dart';
 import 'package:flurant/providers/meals_provider.dart';
+import 'package:flurant/providers/orders_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'common/app.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => CategoriesProvider()),
         ChangeNotifierProvider(create: (_) => MealsProvider()),
-        ChangeNotifierProvider(create: (_) => CartProvider())
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => OrdersProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

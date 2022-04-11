@@ -1,6 +1,7 @@
-import 'package:flurant/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/orders_provider.dart';
 
 class OrdersScreen extends StatelessWidget {
   static const String routeName = '/orders';
@@ -8,14 +9,11 @@ class OrdersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cartItems = Provider.of<CartProvider>(context).items;
+    final _orders = Provider.of<OrdersProvider>(context).orders;
 
     return ListView.builder(
-      itemBuilder: (context, index) => ChangeNotifierProvider.value(
-        value: cartItems[index],
-        child: const Text('Cart is Empty'),
-      ),
-      itemCount: cartItems.length,
+      itemBuilder: (context, index) => Text('Cart is Empty'),
+      itemCount: _orders.length,
     );
   }
 }

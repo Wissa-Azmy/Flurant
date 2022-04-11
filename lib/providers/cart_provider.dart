@@ -94,4 +94,11 @@ class CartProvider with ChangeNotifier {
 
     return total;
   }
+
+  void emptyCart() {
+    if (_items.isEmpty) return;
+
+    _items = {};
+    notifyListeners();
+  }
 }

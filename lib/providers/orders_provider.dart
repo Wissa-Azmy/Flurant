@@ -9,14 +9,19 @@ class OrdersProvider with ChangeNotifier {
   List<Order> get orders => _orders;
 
   void addOrder(List<CartItem> items, double amount) {
+    if (items.isEmpty) return;
+
     _orders.add(Order(
         id: DateTime.now().toString(),
         items: items,
         amount: amount,
         timeStamp: DateTime.now()));
+
+    notifyListeners();
   }
 
   void remove(Order order) {
     _orders.remove(order);
+    notifyListeners();
   }
 }
