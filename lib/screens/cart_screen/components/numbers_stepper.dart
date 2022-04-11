@@ -25,21 +25,23 @@ class NumbersStepper extends StatelessWidget {
     return SizedBox(
       width: 100,
       height: 56,
-      child: Row(children: [
-        Text(title),
-        const SizedBox(width: 8),
-        StepperButton(
-          icon: Icons.remove,
-          tapHandler: () => _cartProvider.decreaseQuantity(_item.product.id),
-        ),
-        const SizedBox(width: 8),
-        Consumer<CartItem>(builder: buildQuantityText),
-        const SizedBox(width: 8),
-        StepperButton(
-          icon: Icons.add,
-          tapHandler: () => _cartProvider.increaseQuantity(_item.product.id),
-        ),
-      ]),
+      child: Row(
+        children: [
+          Text(title),
+          const SizedBox(width: 8),
+          StepperButton(
+            icon: Icons.remove,
+            tapHandler: () => _cartProvider.decreaseQuantity(_item.product.id),
+          ),
+          const SizedBox(width: 8),
+          Consumer<CartItem>(builder: buildQuantityText),
+          const SizedBox(width: 8),
+          StepperButton(
+            icon: Icons.add,
+            tapHandler: () => _cartProvider.increaseQuantity(_item.product.id),
+          ),
+        ],
+      ),
     );
   }
 }
