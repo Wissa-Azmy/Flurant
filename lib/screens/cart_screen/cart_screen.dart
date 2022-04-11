@@ -1,5 +1,6 @@
 import 'package:flurant/common/app.dart';
 import 'package:flurant/providers/cart_provider.dart';
+import 'package:flurant/screens/cart_screen/components/popup_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ class CartScreen extends StatelessWidget {
     final _cartItems = Provider.of<CartProvider>(context).items;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Cart')),
+      appBar: AppBar(title: const Text('Cart'), actions: const [PopupMenu()]),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

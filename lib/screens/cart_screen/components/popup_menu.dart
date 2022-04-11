@@ -13,11 +13,11 @@ class PopupMenu extends StatelessWidget {
       onSelected: (value) => doNothing(value),
       itemBuilder: (_) => const [
         PopupMenuItem(
-          child: Text('data'),
+          child: Text('Add Discount'),
           value: 0,
         ),
         PopupMenuItem(
-          child: Text('more date'),
+          child: Text('Add Over Charge'),
           value: 1,
         ),
       ],

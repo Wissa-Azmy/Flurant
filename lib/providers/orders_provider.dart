@@ -8,7 +8,15 @@ class OrdersProvider with ChangeNotifier {
 
   List<Order> get orders => _orders;
 
-  void addOrder(List<CartItem> products, amount) {
-    _orders.add(Order(id: DateTime.now().toString(), products: products, stockPrice: stockPrice, ammount: ammount, netProfit: netProfit, timeStamp: timeStamp),)
+  void addOrder(List<CartItem> items, double amount) {
+    _orders.add(Order(
+        id: DateTime.now().toString(),
+        items: items,
+        amount: amount,
+        timeStamp: DateTime.now()));
+  }
+
+  void remove(Order order) {
+    _orders.remove(order);
   }
 }

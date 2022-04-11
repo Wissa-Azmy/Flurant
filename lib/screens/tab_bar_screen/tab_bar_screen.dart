@@ -4,7 +4,6 @@ import 'package:flurant/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'app drawer/app_drawer.dart';
-import 'components/popup_menu.dart';
 import 'components/cart_button.dart';
 
 class TabBarScreen extends StatefulWidget {
@@ -39,7 +38,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_barItems[_selectedTabIndex].label!),
-        actions: const [PopupMenu(), CartButton(), SizedBox(width: 8)],
+        actions: const [CartButton(), SizedBox(width: 8)],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: _barItems,
