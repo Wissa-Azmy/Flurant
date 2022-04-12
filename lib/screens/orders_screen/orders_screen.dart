@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../common/app.dart';
-import '../providers/orders_provider.dart';
+import '../../common/app.dart';
+import '../../providers/orders_provider.dart';
+import 'components/order_card.dart';
 
 class OrdersScreen extends StatelessWidget {
   static const String routeName = '/orders';
@@ -53,7 +54,9 @@ class OrdersScreen extends StatelessWidget {
         ),
         Expanded(
           child: ListView.builder(
-            itemBuilder: (context, index) => const Card(child: Text('Order')),
+            itemBuilder: (context, index) => Card(
+              child: OrderCard(order: _orders[index]),
+            ),
             itemCount: _orders.length,
           ),
         ),

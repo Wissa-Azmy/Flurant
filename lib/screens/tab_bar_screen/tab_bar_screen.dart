@@ -1,6 +1,6 @@
 import 'package:flurant/screens/categories_screen.dart';
 import 'package:flurant/screens/favorites_screen.dart';
-import 'package:flurant/screens/orders_screen.dart';
+import 'package:flurant/screens/orders_screen/orders_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'app drawer/app_drawer.dart';
