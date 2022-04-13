@@ -20,8 +20,18 @@ class CartScreen extends StatelessWidget {
     if (items.isEmpty) return;
 
     final _ordersProvider = Provider.of<OrdersProvider>(context, listen: false);
-    _ordersProvider.addOrder(items, amount);
+    final order = _ordersProvider.addOrder(items, amount);
     _cartProvider.emptyCart();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Order added succefully!'),
+        action: SnackBarAction(
+          label: 'UNDO',
+          onPressed: () => _ordersProvider.remove(order),
+        ),
+      ),
+    );
   }
 
   @override

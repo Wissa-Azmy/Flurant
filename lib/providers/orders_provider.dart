@@ -8,16 +8,17 @@ class OrdersProvider with ChangeNotifier {
 
   List<Order> get orders => _orders;
 
-  void addOrder(List<CartItem> items, double amount) {
-    if (items.isEmpty) return;
-
-    _orders.add(Order(
+  Order addOrder(List<CartItem> items, double amount) {
+    final order = Order(
         id: DateTime.now().toString(),
         items: items,
         amount: amount,
-        timeStamp: DateTime.now()));
+        timeStamp: DateTime.now());
+
+    _orders.add(order);
 
     notifyListeners();
+    return order;
   }
 
   double get totalAmount {
