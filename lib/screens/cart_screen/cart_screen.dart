@@ -17,13 +17,13 @@ class CartScreen extends StatelessWidget {
   bool _latePropertyIsNotInitialized = true;
 
   void checkout(BuildContext context, List<CartItem> items, double amount) {
-    if (items.isEmpty) return;
-
     final _ordersProvider = Provider.of<OrdersProvider>(context, listen: false);
     final order = _ordersProvider.addOrder(items, amount);
     _cartProvider.emptyCart();
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
 
-    ScaffoldMessenger.of(context).showSnackBar(
+    scaffoldMessenger.hideCurrentSnackBar();
+    scaffoldMessenger.showSnackBar(
       SnackBar(
         content: const Text('Order added succefully!'),
         action: SnackBarAction(
@@ -68,10 +68,34 @@ class CartScreen extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  TextButton(
+                  OutlinedButton(
                     child: const Text('Checkout'),
-                    onPressed: () => checkout(
-                        context, _cartItems, _cartProvider.totalAmount),
+                    onPressed: _cartItems.isEmpty
+                        ? null
+                        : () => showDialog(
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                title: const Text('Confirm Checkout'),
+                                content:
+                                    const Text('Are you sure to checkout?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(ctx).pop();
+                                    },
+                                    child: const Text('No'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      checkout(context, _cartItems,
+                                          _cartProvider.totalAmount);
+                                      Navigator.of(ctx).pop();
+                                    },
+                                    child: const Text('Yes'),
+                                  )
+                                ],
+                              ),
+                            ),
                   )
                 ],
               ),
