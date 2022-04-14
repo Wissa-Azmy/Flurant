@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/app.dart';
+import '../../../components/info_icon.dart';
 import '../../../models/cart_item.dart';
 import '../../../components/dismissible_delete_background.dart';
 import 'numbers_stepper.dart';
@@ -26,13 +27,36 @@ class CartItemCard extends StatelessWidget {
             key: ValueKey(_item.product.id),
             child: Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: ListTile(
-                leading: Chip(
-                  label: Text(_item.product.priceText,
-                      style: App.textTheme.bodySmall),
-                ),
-                title: FittedBox(child: Text(_item.product.title)),
-                subtitle: const NumbersStepper(title: 'Quantity'),
+              child: Column(
+                children: [
+                  ListTile(
+                    title: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        _item.product.title,
+                        style: const TextStyle(fontSize: 32),
+                      ),
+                    ),
+                    subtitle: const NumbersStepper(title: 'Quantity'),
+                  ),
+                  const Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InfoIcon(Icons.attach_money,
+                            text: _item.product.priceText),
+                        InfoIcon(
+                          Icons.numbers,
+                          text: _item.quantity.toString(),
+                        ),
+                        InfoIcon(Icons.monetization_on,
+                            text: '${_item.quantity * _item.product.price} LE'),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
             confirmDismiss: (_) {
