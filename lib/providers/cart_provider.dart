@@ -52,7 +52,7 @@ class CartProvider with ChangeNotifier {
   }
 
   bool isInStock(Meal product) {
-    return product.quantity > 1;
+    return product.quantity > 1 && itemQuantity(product.id) < product.quantity;
   }
 
   void decreaseQuantity(String productId) {

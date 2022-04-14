@@ -14,7 +14,21 @@ class CartIconButton extends StatelessWidget {
     final _cartProvider = Provider.of<CartProvider>(context);
 
     return InkWell(
-      onTap: () => _cartProvider.addItem(meal),
+      onTap: () => _cartProvider.isInStock(meal)
+          ? _cartProvider.addItem(meal)
+          : showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text('Out of Stock'),
+                content: const Text('No more items available.'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(ctx).pop(false),
+                    child: const Text('Ok'),
+                  )
+                ],
+              ),
+            ),
       child: Container(
         width: 70,
         height: 70,
