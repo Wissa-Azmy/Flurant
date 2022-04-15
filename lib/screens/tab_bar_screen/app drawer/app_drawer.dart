@@ -1,5 +1,5 @@
 import 'package:flurant/common/app.dart';
-import 'package:flurant/screens/filters_screen.dart';
+import 'package:flurant/screens/all_orders_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_link.dart';
@@ -12,7 +12,7 @@ class AppDrawer extends StatelessWidget {
   void openSettingsScreen() {}
 
   void openFiltersScreen(BuildContext context) {
-    Navigator.of(context).pushNamed(FiltersScreen.routeName);
+    Navigator.of(context).pushNamed(AllOrdersScreen.routeName);
   }
 
   @override

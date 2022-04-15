@@ -3,7 +3,6 @@ import 'package:flurant/screens/cart_screen/components/popup_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../common/app.dart';
 import '../../../components/info_icon.dart';
 import '../../../models/cart_item.dart';
 import '../../../components/dismissible_delete_background.dart';
