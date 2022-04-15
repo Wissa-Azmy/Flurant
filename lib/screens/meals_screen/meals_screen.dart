@@ -9,6 +9,10 @@ class MealsScreen extends StatelessWidget {
 
   const MealsScreen({Key? key}) : super(key: key);
 
+  Future<void> _refresh() async {
+    await Future.delayed(Duration(seconds: 2));
+  }
+
   @override
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context)?.settings.arguments as Category;
@@ -19,12 +23,15 @@ class MealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(category.title),
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) => ChangeNotifierProvider.value(
-          value: categoryMeals[index],
-          child: MealItem(),
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        child: ListView.builder(
+          itemBuilder: (context, index) => ChangeNotifierProvider.value(
+            value: categoryMeals[index],
+            child: MealItem(),
+          ),
+          itemCount: categoryMeals.length,
         ),
-        itemCount: categoryMeals.length,
       ),
     );
   }
