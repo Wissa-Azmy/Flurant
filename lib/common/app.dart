@@ -1,7 +1,8 @@
+import 'package:flurant/screens/admin_screens/all_products_screen.dart';
 import 'package:flurant/screens/cart_screen/cart_screen.dart';
 import 'package:flurant/screens/categories_screen/add_category_form.dart';
 import 'package:flurant/screens/categories_screen/categories_screen.dart';
-import 'package:flurant/screens/all_orders_screen.dart';
+import 'package:flurant/screens/admin_screens/all_orders_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
 import 'package:flurant/screens/meals_screen/meals_screen.dart';
 import 'package:flurant/screens/tab_bar_screen/tab_bar_screen.dart';
@@ -80,11 +81,12 @@ class App {
 // MARK: - Routes
   static final Map<String, Widget Function(BuildContext)> routes = {
     '/': (conetxt) => const TabBarScreen(),
-    MealsScreen.routeName: (context) => const MealsScreen(),
-    ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
-    AllOrdersScreen.routeName: (context) => const AllOrdersScreen(),
     CartScreen.routeName: (context) => CartScreen(),
-    AddCategoryForm.routeName: (context) => const AddCategoryForm()
+    MealsScreen.routeName: (context) => const MealsScreen(),
+    AddCategoryForm.routeName: (context) => const AddCategoryForm(),
+    AllOrdersScreen.routeName: (context) => const AllOrdersScreen(),
+    ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
+    AllProductsScreen.routeName: (context) => const AllProductsScreen()
   };
 
   static final MaterialPageRoute defaultRoute = MaterialPageRoute(
