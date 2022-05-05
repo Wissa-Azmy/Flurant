@@ -43,7 +43,7 @@ class OrdersScreen extends StatelessWidget {
                     '${_ordersProvider.netProfit.toString()} LE',
                     style: App.textTheme.labelLarge?.copyWith(
                       color: _ordersProvider.netProfit > 0
-                          ? Colors.greenAccent
+                          ? Colors.green
                           : Colors.red[400],
                     ),
                   ),

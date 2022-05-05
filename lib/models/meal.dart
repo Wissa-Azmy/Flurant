@@ -23,7 +23,7 @@ class Meal with ChangeNotifier {
   final List<String> steps;
   final int duration;
   final double price;
-  // final double retailPrice;
+  final double retailPrice;
   // final Brand brand;
   final Complexity complexity;
   final Affordability affordability;
@@ -43,6 +43,7 @@ class Meal with ChangeNotifier {
       required this.steps,
       required this.duration,
       required this.price,
+      required this.retailPrice,
       required this.complexity,
       required this.affordability,
       required this.isGlutenFree,
@@ -74,7 +75,7 @@ class Meal with ChangeNotifier {
     }
   }
 
-  String get priceText => '${price.toString()} LE';
+  String get retailPriceText => '${retailPrice.toString()} LE';
 
   void toggleFavourite() {
     isFavourite = !isFavourite;

@@ -45,13 +45,13 @@ class CartItemCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InfoIcon(Icons.attach_money,
-                            text: _item.product.priceText),
+                            text: _item.product.retailPriceText),
                         InfoIcon(
                           Icons.numbers,
                           text: _item.quantity.toString(),
                         ),
                         InfoIcon(Icons.monetization_on,
-                            text: '${_item.quantity * _item.product.price} LE'),
+                            text: '${_item.quantity * _item.product.retailPrice} LE'),
                       ],
                     ),
                   )

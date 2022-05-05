@@ -32,7 +32,7 @@ class Order {
   double get retailPrice {
     double retailPrice = 0;
     for (var item in items) {
-      // TODO: calculate retail price for the quantity of the cart item.
+      retailPrice += item.quantity * item.product.retailPrice;
     }
     return retailPrice;
   }
