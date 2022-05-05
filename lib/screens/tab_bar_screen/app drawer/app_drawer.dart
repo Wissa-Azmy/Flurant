@@ -1,6 +1,7 @@
 import 'package:flurant/common/app.dart';
 import 'package:flurant/screens/admin_screens/all_orders_screen.dart';
-import 'package:flurant/screens/admin_screens/all_products_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_categories_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_products_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_link.dart';
@@ -18,10 +19,13 @@ class AppDrawer extends StatelessWidget {
     Navigator.of(context).pushNamed(AllOrdersScreen.routeName);
   }
 
-  void openAllProductsScreen(BuildContext context) {
-    Navigator.of(context).pushNamed(AllProductsScreen.routeName);
+  void openManageProductsScreen(BuildContext context) {
+    Navigator.of(context).pushNamed(ManageProductsScreen.routeName);
   }
 
+  void openManageCategoriesScreen(BuildContext context) {
+    Navigator.of(context).pushNamed(ManageCategoriesScreen.routeName);
+  }
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -38,9 +42,14 @@ class AppDrawer extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           DrawerLink(
-            title: 'All Products',
+            title: 'Manage Categories',
             icon: Icons.payment,
-            tapHandler: () => openAllProductsScreen(context),
+            tapHandler: () => openManageCategoriesScreen(context),
+          ),
+          DrawerLink(
+            title: 'Manage Products',
+            icon: Icons.payment,
+            tapHandler: () => openManageProductsScreen(context),
           ),
           const SizedBox(height: 20),
           DrawerLink(

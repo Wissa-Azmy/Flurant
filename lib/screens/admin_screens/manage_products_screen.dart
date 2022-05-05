@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../categories_screen/add_category_form.dart';
 
-class AllProductsScreen extends StatelessWidget {
+class ManageProductsScreen extends StatelessWidget {
   static const String routeName = '/allProducts';
 
-  const AllProductsScreen({Key? key}) : super(key: key);
+  const ManageProductsScreen({Key? key}) : super(key: key);
 
   void navigateToAddCategoryForm(BuildContext context) {
     Navigator.of(context).pushNamed(AddCategoryForm.routeName);

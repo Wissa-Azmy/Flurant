@@ -1,4 +1,5 @@
-import 'package:flurant/screens/admin_screens/all_products_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_categories_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_products_screen.dart';
 import 'package:flurant/screens/cart_screen/cart_screen.dart';
 import 'package:flurant/screens/categories_screen/add_category_form.dart';
 import 'package:flurant/screens/categories_screen/categories_screen.dart';
@@ -86,7 +87,8 @@ class App {
     AddCategoryForm.routeName: (context) => const AddCategoryForm(),
     AllOrdersScreen.routeName: (context) => const AllOrdersScreen(),
     ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
-    AllProductsScreen.routeName: (context) => const AllProductsScreen()
+    ManageProductsScreen.routeName: (context) => const ManageProductsScreen(),
+    ManageCategoriesScreen.routeName: (context) => const ManageCategoriesScreen()
   };
 
   static final MaterialPageRoute defaultRoute = MaterialPageRoute(

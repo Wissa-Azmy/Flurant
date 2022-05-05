@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flurant/models/category.dart';
+import 'package:flurant/providers/categories_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddCategoryForm extends StatefulWidget {
   static const String routeName = '/add_category_form';
@@ -22,14 +26,15 @@ class _AddCategoryFormState extends State<AddCategoryForm> {
 
     _formKey.currentState?.save();
 
+    Color _randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+
     final category = Category(
         id: DateTime.now().toString(),
         title: _formValues['title'] ?? '',
-        color: Colors.white);
+        color: _randomColor);
 
-    print('Submitted');
-    print(category.id);
-    print(category.title);
+    final categoriesProvider = Provider.of<CategoriesProvider>(context, listen: false);
+    categoriesProvider.add(category);
   }
 
   String? validateTitle(String? value) {
