@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../categories_screen/add_category_form.dart';
+import 'add_category_form.dart';
 
 class ManageCategoriesScreen extends StatelessWidget {
   static const String routeName = '/manageCategories';

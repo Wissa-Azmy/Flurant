@@ -1,14 +1,14 @@
+import 'package:flurant/screens/admin_screens/manage_products/add_product_form.dart';
 import 'package:flutter/material.dart';
 
-import '../categories_screen/add_category_form.dart';
 
 class ManageProductsScreen extends StatelessWidget {
   static const String routeName = '/allProducts';
 
   const ManageProductsScreen({Key? key}) : super(key: key);
 
-  void navigateToAddCategoryForm(BuildContext context) {
-    Navigator.of(context).pushNamed(AddCategoryForm.routeName);
+  void navigateToAddProductForm(BuildContext context) {
+    Navigator.of(context).pushNamed(AddProductForm.routeName);
   }
 
   @override
@@ -18,7 +18,7 @@ class ManageProductsScreen extends StatelessWidget {
         title: const Text('All Products'),
         actions: [
           IconButton(
-            onPressed: () => navigateToAddCategoryForm(context),
+            onPressed: () => navigateToAddProductForm(context),
             icon: const Icon(Icons.add),
           )
         ],

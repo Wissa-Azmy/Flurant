@@ -1,7 +1,7 @@
 import 'package:flurant/common/app.dart';
 import 'package:flurant/screens/admin_screens/all_orders_screen.dart';
-import 'package:flurant/screens/admin_screens/manage_categories_screen.dart';
-import 'package:flurant/screens/admin_screens/manage_products_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_categories/manage_categories_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_products/manage_products_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_link.dart';

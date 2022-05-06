@@ -1,7 +1,8 @@
-import 'package:flurant/screens/admin_screens/manage_categories_screen.dart';
-import 'package:flurant/screens/admin_screens/manage_products_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_categories/manage_categories_screen.dart';
+import 'package:flurant/screens/admin_screens/manage_products/add_product_form.dart';
+import 'package:flurant/screens/admin_screens/manage_products/manage_products_screen.dart';
 import 'package:flurant/screens/cart_screen/cart_screen.dart';
-import 'package:flurant/screens/categories_screen/add_category_form.dart';
+import 'package:flurant/screens/admin_screens/manage_categories/add_category_form.dart';
 import 'package:flurant/screens/categories_screen/categories_screen.dart';
 import 'package:flurant/screens/admin_screens/all_orders_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
@@ -84,6 +85,7 @@ class App {
     '/': (conetxt) => const TabBarScreen(),
     CartScreen.routeName: (context) => CartScreen(),
     MealsScreen.routeName: (context) => const MealsScreen(),
+    AddProductForm.routeName: (context) => const AddProductForm(),
     AddCategoryForm.routeName: (context) => const AddCategoryForm(),
     AllOrdersScreen.routeName: (context) => const AllOrdersScreen(),
     ItemDetailScreen.routeName: (context) => const ItemDetailScreen(),
