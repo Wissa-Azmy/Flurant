@@ -26,7 +26,7 @@ class _AddCategoryFormState extends State<AddCategoryForm> {
 
     _formKey.currentState?.save();
 
-    Color _randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+    final _randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
 
     final category = Category(
         id: DateTime.now().toString(),
@@ -35,6 +35,7 @@ class _AddCategoryFormState extends State<AddCategoryForm> {
 
     final categoriesProvider = Provider.of<CategoriesProvider>(context, listen: false);
     categoriesProvider.add(category);
+    Navigator.of(context).pop();
   }
 
   String? validateTitle(String? value) {
