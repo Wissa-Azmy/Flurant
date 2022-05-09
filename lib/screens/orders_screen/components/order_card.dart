@@ -40,7 +40,16 @@ class _OrderCardState extends State<OrderCard> {
     return Column(
       children: [
         ListTile(
-          title: Text(widget._order.amount.toString()),
+          title: Row(
+            children: [
+              Text(order.amount.toString()),
+              const Spacer(),
+              Text(
+                order.netProfit.toString(), 
+                style: TextStyle(color: order.netProfit > 0 ? Colors.green : Colors.red),
+              ),
+            ],
+          ),
           subtitle: Text(
             DateFormat('dd/MM/yyyy hh:mm').format(widget._order.timeStamp),
           ),
@@ -64,7 +73,7 @@ class _OrderCardState extends State<OrderCard> {
                             item.product.title,
                             style: App.textTheme.titleSmall,
                           ),
-                          Text('${item.quantity} x ${item.product.price}')
+                          Text('${item.quantity} x ${item.product.retailPrice}')
                         ],
                       ),
                     ),
