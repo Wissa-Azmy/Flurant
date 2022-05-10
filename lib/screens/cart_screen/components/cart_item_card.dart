@@ -30,6 +30,7 @@ class CartItemCard extends StatelessWidget {
                 children: [
                   ListTile(
                     title: FittedBox(
+                      alignment: Alignment.centerLeft,
                       fit: BoxFit.scaleDown,
                       child: Text(
                         _item.product.title,
