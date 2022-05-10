@@ -54,8 +54,8 @@ class MealItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InfoIcon(Icons.schedule, text: '${_meal.duration} min'),
-                  InfoIcon(Icons.work, text: _meal.complexityText),
-                  InfoIcon(Icons.attach_money, text: _meal.affordabilityText),
+                  InfoIcon(Icons.work, text: _meal.quantity.toString()),
+                  InfoIcon(Icons.attach_money, text: _meal.retailPrice.toString()),
                 ],
               ),
             )

@@ -49,7 +49,7 @@ class CartIconButton extends StatelessWidget {
                     ? Icons.shopping_cart
                     : Icons.shopping_cart_outlined,
                 size: 32,
-                color: Colors.blue,
+                color: _cartProvider.isInStock(meal) ? Colors.blue : Colors.grey,
               ),
       ),
     );
