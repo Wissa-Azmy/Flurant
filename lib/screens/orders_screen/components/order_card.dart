@@ -51,7 +51,7 @@ class _OrderCardState extends State<OrderCard> {
             ],
           ),
           subtitle: Text(
-            DateFormat('dd/MM/yyyy hh:mm').format(widget._order.timeStamp),
+            DateFormat('dd-MM-yyyy hh:mm').format(widget._order.timeStamp),
           ),
           trailing: IconButton(
             icon: Icon(_isExpanded ? Icons.expand_less : Icons.expand_more),
