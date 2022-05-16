@@ -1,4 +1,6 @@
+import 'package:flurant/providers/categories_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'add_category_form.dart';
 
@@ -13,6 +15,8 @@ class ManageCategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = Provider.of<CategoriesProvider>(context).categories;
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Manage Categories'),
@@ -23,7 +27,29 @@ class ManageCategoriesScreen extends StatelessWidget {
           )
         ],
       ),
-      body: const Center(child: Text('No Categories added yet.')),
+      body: categories.isEmpty ? 
+        const Center(child: Text('No Categories added yet.')) : 
+        ListView(
+          padding: const EdgeInsets.all(8),
+          children: categories.reversed
+          .map(
+            (category) => Column(
+              key: ValueKey(category.id),
+              children: [
+                ListTile(
+                  title: Text(category.title), 
+                  tileColor: category.color,
+                  trailing: IconButton(
+                    icon: const Icon(Icons.edit, color: Colors.white,), 
+                    onPressed: () {},
+                  ),
+                ),
+                const SizedBox(height: 8,)
+              ],
+            ),
+          )
+          .toList(),
+        )
     );
   }
 }
