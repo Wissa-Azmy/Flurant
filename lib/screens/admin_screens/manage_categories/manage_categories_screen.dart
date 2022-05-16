@@ -1,3 +1,4 @@
+import 'package:flurant/common/utils.dart';
 import 'package:flurant/components/dismissible_delete_background.dart';
 import 'package:flurant/providers/categories_provider.dart';
 import 'package:flutter/material.dart';
@@ -12,26 +13,6 @@ class ManageCategoriesScreen extends StatelessWidget {
 
   void navigateToAddCategoryForm(BuildContext context) {
     Navigator.of(context).pushNamed(AddCategoryForm.routeName);
-  }
-
-  Future<bool?> confirmDismiss(BuildContext context) {
-    return showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Confirm Deletion'),
-        content: const Text('Are you sure to delete this item?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('No'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Yes'),
-          )
-        ],
-      ),
-    );
   }
 
   @override
@@ -62,7 +43,7 @@ class ManageCategoriesScreen extends StatelessWidget {
                   key: ValueKey(category.id),
                   background: const DismissibleDeleteBackground(),
                   direction: DismissDirection.endToStart,
-                  confirmDismiss: (_) => confirmDismiss(context),
+                  confirmDismiss: (_) => Utils.confirmDeletion(context),
                   onDismissed: (_) => categoriesProvider.delete(category),
                   child: ListTile(
                     title: Text(category.title), 

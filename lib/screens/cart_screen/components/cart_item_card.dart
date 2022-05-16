@@ -1,3 +1,4 @@
+import 'package:flurant/common/utils.dart';
 import 'package:flurant/providers/cart_provider.dart';
 import 'package:flurant/screens/cart_screen/components/popup_menu.dart';
 import 'package:flutter/material.dart';
@@ -10,26 +11,6 @@ import 'numbers_stepper.dart';
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard({Key? key}) : super(key: key);
-
-  Future<bool?> confirmDismiss(BuildContext context) {
-    return showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Confirm Deletion'),
-        content: const Text('Are you sure to delete this item?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('No'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Yes'),
-          )
-        ],
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +60,7 @@ class CartItemCard extends StatelessWidget {
                 ],
               ),
             ),
-            confirmDismiss: (_) => confirmDismiss(context),
+            confirmDismiss: (_) => Utils.confirmDeletion(context),
             onDismissed: (_) => _cartProvider.removeItem(_item.product.id),
           ),
         ),
