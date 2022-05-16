@@ -11,6 +11,26 @@ import 'numbers_stepper.dart';
 class CartItemCard extends StatelessWidget {
   const CartItemCard({Key? key}) : super(key: key);
 
+  Future<bool?> confirmDismiss(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Confirm Deletion'),
+        content: const Text('Are you sure to delete this item?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Yes'),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final _item = Provider.of<CartItem>(context);
@@ -59,25 +79,7 @@ class CartItemCard extends StatelessWidget {
                 ],
               ),
             ),
-            confirmDismiss: (_) {
-              return showDialog(
-                context: context,
-                builder: (ctx) => AlertDialog(
-                  title: const Text('Confirm Deletion'),
-                  content: const Text('Are you sure to delete this item?'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(ctx).pop(false),
-                      child: const Text('No'),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.of(ctx).pop(true),
-                      child: const Text('Yes'),
-                    )
-                  ],
-                ),
-              );
-            },
+            confirmDismiss: (_) => confirmDismiss(context),
             onDismissed: (_) => _cartProvider.removeItem(_item.product.id),
           ),
         ),

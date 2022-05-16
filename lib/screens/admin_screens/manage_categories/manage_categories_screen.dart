@@ -1,3 +1,4 @@
+import 'package:flurant/components/dismissible_delete_background.dart';
 import 'package:flurant/providers/categories_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,9 +14,30 @@ class ManageCategoriesScreen extends StatelessWidget {
     Navigator.of(context).pushNamed(AddCategoryForm.routeName);
   }
 
+  Future<bool?> confirmDismiss(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Confirm Deletion'),
+        content: const Text('Are you sure to delete this item?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Yes'),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final categories = Provider.of<CategoriesProvider>(context).categories;
+    final categoriesProvider = Provider.of<CategoriesProvider>(context);
+    final categories = categoriesProvider.categories;
     
     return Scaffold(
       appBar: AppBar(
@@ -36,12 +58,19 @@ class ManageCategoriesScreen extends StatelessWidget {
             (category) => Column(
               key: ValueKey(category.id),
               children: [
-                ListTile(
-                  title: Text(category.title), 
-                  tileColor: category.color,
-                  trailing: IconButton(
-                    icon: const Icon(Icons.edit, color: Colors.white,), 
-                    onPressed: () {},
+                Dismissible(
+                  key: ValueKey(category.id),
+                  background: const DismissibleDeleteBackground(),
+                  direction: DismissDirection.endToStart,
+                  confirmDismiss: (_) => confirmDismiss(context),
+                  onDismissed: (_) => categoriesProvider.delete(category),
+                  child: ListTile(
+                    title: Text(category.title), 
+                    tileColor: category.color,
+                    trailing: IconButton(
+                      icon: const Icon(Icons.edit, color: Colors.white,), 
+                      onPressed: () {},
+                    ),
                   ),
                 ),
                 const SizedBox(height: 8,)
