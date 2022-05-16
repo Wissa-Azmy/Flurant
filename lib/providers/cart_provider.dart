@@ -14,9 +14,15 @@ class CartProvider with ChangeNotifier {
     if (isInCart(product.id)) {
       increaseQuantity(product.id);
     } else {
-      addToCart(product);
+      _addToCart(product, null);
     }
     notifyListeners();
+  }
+
+  void addItems(List<CartItem> itemsList) {
+   itemsList.forEach((element) {_addToCart(element.product, element.quantity);});
+
+   notifyListeners();
   }
 
   void removeItem(String productId) {
@@ -25,10 +31,10 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addToCart(Meal product) {
+  void _addToCart(Meal product, int? quantity) {
     _items.putIfAbsent(
       product.id,
-      () => CartItem(product: product, quantity: 1),
+      () => CartItem(product: product, quantity: quantity ?? 1),
     );
   }
 

@@ -28,7 +28,10 @@ class CartScreen extends StatelessWidget {
         content: const Text('Order added succefully!'),
         action: SnackBarAction(
           label: 'UNDO',
-          onPressed: () => _ordersProvider.remove(order),
+          onPressed: () {
+            _ordersProvider.remove(order); 
+            _cartProvider.addItems(items);
+          },
         ),
       ),
     );
@@ -72,30 +75,7 @@ class CartScreen extends StatelessWidget {
                     child: const Text('Checkout'),
                     onPressed: _cartItems.isEmpty
                         ? null
-                        : () => showDialog(
-                              context: context,
-                              builder: (ctx) => AlertDialog(
-                                title: const Text('Confirm Checkout'),
-                                content:
-                                    const Text('Are you sure to checkout?'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(ctx).pop();
-                                    },
-                                    child: const Text('No'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      checkout(context, _cartItems,
-                                          _cartProvider.totalAmount);
-                                      Navigator.of(ctx).pop();
-                                    },
-                                    child: const Text('Yes'),
-                                  )
-                                ],
-                              ),
-                            ),
+                        : () => confirmCheckout(context, _cartItems),
                   )
                 ],
               ),
@@ -105,11 +85,36 @@ class CartScreen extends StatelessWidget {
             child: ListView.builder(
               itemBuilder: (context, index) => ChangeNotifierProvider.value(
                 value: _cartItems[index],
-                child: const CartItemCard(),
+                child: CartItemCard(),
               ),
               itemCount: _cartProvider.items.length,
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Future<dynamic> confirmCheckout(BuildContext context, List<CartItem> _cartItems) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Confirm Checkout'),
+        content: const Text('Are you sure to checkout?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () {
+              checkout(context, _cartItems, _cartProvider.totalAmount);
+              Navigator.of(ctx).pop();
+            },
+            child: const Text('Yes'),
+          )
         ],
       ),
     );
