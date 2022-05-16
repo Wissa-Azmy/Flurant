@@ -15,7 +15,6 @@ class AddCategoryForm extends StatefulWidget {
 }
 
 class _AddCategoryFormState extends State<AddCategoryForm> {
-  final _priceNode = FocusNode();
   final _descriptionNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
   Map<String, String> _formValues = {};
@@ -45,16 +44,9 @@ class _AddCategoryFormState extends State<AddCategoryForm> {
     return null;
   }
 
-  String? validatePrice(String? value) {
-    if (value!.isEmpty) {
-      return 'Enter a valid Price.';
-    }
-    return null;
-  }
 
   @override
   void dispose() {
-    _priceNode.dispose();
     _descriptionNode.dispose();
     super.dispose();
   }
@@ -74,21 +66,11 @@ class _AddCategoryFormState extends State<AddCategoryForm> {
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'Title'),
                   textInputAction: TextInputAction.next,
-                  onFieldSubmitted: (_) => _focusScope.requestFocus(_priceNode),
+                  onFieldSubmitted: (_) => _focusScope.requestFocus(_descriptionNode),
                   validator: validateTitle,
                   onSaved: (value) =>
                       _formValues.putIfAbsent('title', () => value ?? ''),
                 ),
-                TextFormField(
-                    decoration: const InputDecoration(labelText: 'Price'),
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.number,
-                    focusNode: _priceNode,
-                    onFieldSubmitted: (_) =>
-                        _focusScope.requestFocus(_descriptionNode),
-                    validator: validatePrice,
-                    onSaved: (value) =>
-                        _formValues.putIfAbsent('price', () => value ?? '')),
                 TextFormField(
                     decoration: const InputDecoration(labelText: 'Description'),
                     maxLines: 3,
