@@ -38,7 +38,7 @@ class _AddCategoryFormState extends State<AddCategoryForm> {
   }
 
   String? validateTitle(String? value) {
-    if (value!.isEmpty || value.length < 5) {
+    if (value!.isEmpty || value.length < 3) {
       return 'Enter a valid title.';
     }
     return null;

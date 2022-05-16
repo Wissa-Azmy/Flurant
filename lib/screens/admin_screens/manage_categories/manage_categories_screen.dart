@@ -55,9 +55,9 @@ class ManageCategoriesScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           children: categories.reversed
           .map(
-            (category) => Column(
-              key: ValueKey(category.id),
-              children: [
+            (category) => Card(
+              margin: const EdgeInsets.all(8),
+              child:
                 Dismissible(
                   key: ValueKey(category.id),
                   background: const DismissibleDeleteBackground(),
@@ -73,8 +73,6 @@ class ManageCategoriesScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8,)
-              ],
             ),
           )
           .toList(),
