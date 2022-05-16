@@ -9,6 +9,8 @@ class OrdersProvider with ChangeNotifier {
   List<Order> get orders => _orders;
 
   Order addOrder(List<CartItem> items, double amount) {
+    items.forEach((element) {element.product.decreaseQuantity(element.quantity);});
+
     final order = Order(
         id: DateTime.now().toString(),
         items: items,
@@ -38,6 +40,8 @@ class OrdersProvider with ChangeNotifier {
   }
 
   void remove(Order order) {
+    order.items.forEach((element) {element.product.increaseQuantity(element.quantity);});
+    
     _orders.remove(order);
     notifyListeners();
   }

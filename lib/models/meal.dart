@@ -82,4 +82,18 @@ class Meal with ChangeNotifier {
 
     notifyListeners();
   }
+
+  void increaseQuantity(int? returnedQuantity) {
+    quantity += returnedQuantity ?? 1;
+
+    notifyListeners();
+  }
+
+  void decreaseQuantity(int? soldQuantity) {
+    if (quantity - (soldQuantity ?? 1) >= 0) {
+      quantity -= soldQuantity ?? 1;
+      
+      notifyListeners();
+    }
+  }
 }
