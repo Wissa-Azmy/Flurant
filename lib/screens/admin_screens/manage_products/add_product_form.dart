@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flurant/models/category.dart';
 import 'package:flurant/providers/categories_provider.dart';
+import 'package:flurant/screens/admin_screens/manage_products/image_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -80,6 +81,7 @@ class _AddCategoryFormState extends State<AddProductForm> {
                   onSaved: (value) =>
                       _formValues.putIfAbsent('title', () => value ?? ''),
                 ),
+                const ImageInput(),
                 TextFormField(
                     decoration: const InputDecoration(labelText: 'Stock Price'),
                     textInputAction: TextInputAction.next,
