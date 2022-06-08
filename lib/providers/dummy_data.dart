@@ -8,27 +8,27 @@ import '../models/meal.dart';
 var DUMMY_CATEGORIES = [
   Category(
     id: 'c1',
-    title: 'Italian',
+    title: 'Hand Tools',
     color: Colors.purple,
   ),
   Category(
     id: 'c2',
-    title: 'Quick & Easy',
+    title: 'New',
     color: Colors.red,
   ),
   Category(
     id: 'c3',
-    title: 'Hamburgers',
+    title: 'E-Bikes',
     color: Colors.orange,
   ),
   Category(
     id: 'c4',
-    title: 'German',
+    title: 'Smart',
     color: Colors.amber,
   ),
   Category(
     id: 'c5',
-    title: 'Light & Lovely',
+    title: 'Used',
     color: Colors.blue,
   ),
   Category(
@@ -38,22 +38,22 @@ var DUMMY_CATEGORIES = [
   ),
   Category(
     id: 'c7',
-    title: 'Breakfast',
+    title: 'Spare Parts',
     color: Colors.lightBlue,
   ),
   Category(
     id: 'c8',
-    title: 'Asian',
+    title: 'Computers & Laptops',
     color: Colors.lightGreen,
   ),
   Category(
     id: 'c9',
-    title: 'French',
+    title: 'E-Scooters',
     color: Colors.pink,
   ),
   Category(
     id: 'c10',
-    title: 'Summer',
+    title: 'Phones',
     color: Colors.teal,
   ),
 ];
