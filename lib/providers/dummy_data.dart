@@ -65,7 +65,7 @@ final DUMMY_MEALS = [
       'c1',
       'c2',
     ],
-    title: 'Spaghetti with Tomato Sauce',
+    title: 'Screw Driver',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
@@ -100,7 +100,7 @@ final DUMMY_MEALS = [
     categories: [
       'c2',
     ],
-    title: 'Toast Hawaii',
+    title: 'Toaster',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
@@ -132,7 +132,7 @@ final DUMMY_MEALS = [
       'c2',
       'c3',
     ],
-    title: 'Classic Hamburger',
+    title: 'Classic Ferrari',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
     imageUrl:
@@ -166,7 +166,7 @@ final DUMMY_MEALS = [
     categories: [
       'c4',
     ],
-    title: 'Wiener Schnitzel',
+    title: 'Macbook Pro',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
     imageUrl:
@@ -206,7 +206,7 @@ final DUMMY_MEALS = [
           'c5',
       'c10',
     ],
-    title: 'Salad with Smoked Salmon',
+    title: 'Macbook Pro with M1',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
     imageUrl:
@@ -243,7 +243,7 @@ final DUMMY_MEALS = [
       'c6',
       'c10',
     ],
-    title: 'Delicious Orange Mousse',
+    title: 'Magic Mouse 2',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
     imageUrl:
@@ -281,7 +281,7 @@ final DUMMY_MEALS = [
     categories: [
       'c7',
     ],
-    title: 'Pancakes',
+    title: 'Magic Keyboard 2',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
@@ -315,7 +315,7 @@ final DUMMY_MEALS = [
     categories: [
       'c8',
     ],
-    title: 'Creamy Indian Chicken Curry',
+    title: 'Magic Trackpad',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
     imageUrl:
@@ -351,7 +351,7 @@ final DUMMY_MEALS = [
     categories: [
       'c9',
     ],
-    title: 'Chocolate Souffle',
+    title: 'Macbook Air M2',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
     imageUrl:
@@ -405,7 +405,7 @@ final DUMMY_MEALS = [
       'c5',
       'c10',
     ],
-    title: 'Asparagus Salad with Cherry Tomatoes',
+    title: 'Air Tag',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
     imageUrl:
