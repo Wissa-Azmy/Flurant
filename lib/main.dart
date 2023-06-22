@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       providers: App.providers,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flurant',
+        title: App.name,
         theme: App.theme,
         routes: App.routes,
         onUnknownRoute: (settings) => App.defaultRoute,

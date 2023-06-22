@@ -22,6 +22,8 @@ class App {
 
   const App({Key? key, required this.context});
 
+  static String name = 'Storedex';
+
 // MARK: - App Providers
   static List<SingleChildWidget> providers = [
     ChangeNotifierProvider(create: (_) => CategoriesProvider()),

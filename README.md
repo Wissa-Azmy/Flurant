@@ -1,6 +1,6 @@
-# Flurant
+# Storedex
 
-A Flutter Restaurant App.
+A Flutter Store Management App.
 
 ## Getting Started
 
