@@ -1,4 +1,4 @@
-import 'package:flurant/providers/meals_provider.dart';
+import 'package:flurant/providers/products_provider.dart';
 import 'package:flurant/screens/admin_screens/manage_products/add_product_form.dart';
 import 'package:flurant/screens/admin_screens/manage_products/product_list_tile.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +16,8 @@ class ManageProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productsProvider = Provider.of<MealsProvider>(context);
-    final products = productsProvider.meals;
+    final productsProvider = Provider.of<ProductsProvider>(context);
+    final products = productsProvider.products;
 
     return Scaffold(
       appBar: AppBar(

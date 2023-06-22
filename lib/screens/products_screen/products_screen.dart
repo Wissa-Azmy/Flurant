@@ -1,13 +1,13 @@
-import 'package:flurant/screens/meals_screen/components/meal_item.dart';
+import 'package:flurant/screens/products_screen/components/product_item.dart';
 import 'package:flurant/models/category.dart';
-import 'package:flurant/providers/meals_provider.dart';
+import 'package:flurant/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MealsScreen extends StatelessWidget {
+class ProductsScreen extends StatelessWidget {
   static const String routeName = 'meals-screen';
 
-  const MealsScreen({Key? key}) : super(key: key);
+  const ProductsScreen({Key? key}) : super(key: key);
 
   Future<void> _refresh() async {
     await Future.delayed(Duration(seconds: 2));
@@ -16,8 +16,8 @@ class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context)?.settings.arguments as Category;
-    final categoryMeals =
-        Provider.of<MealsProvider>(context).mealsWith(category.id);
+    final productsWithCategory =
+        Provider.of<ProductsProvider>(context).productsWith(category.id);
 
     return Scaffold(
       appBar: AppBar(
@@ -27,10 +27,10 @@ class MealsScreen extends StatelessWidget {
         onRefresh: _refresh,
         child: ListView.builder(
           itemBuilder: (context, index) => ChangeNotifierProvider.value(
-            value: categoryMeals[index],
-            child: MealItem(),
+            value: productsWithCategory[index],
+            child: ProductItem(),
           ),
-          itemCount: categoryMeals.length,
+          itemCount: productsWithCategory.length,
         ),
       ),
     );

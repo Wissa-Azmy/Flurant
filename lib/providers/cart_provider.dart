@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 
 import '../models/cart_item.dart';
-import '../models/meal.dart';
+import '../models/product.dart';
 
 class CartProvider with ChangeNotifier {
   Map<String, CartItem> _items = {};
 
   List<CartItem> get items => _items.values.toList();
 
-  void addItem(Meal product) {
+  void addItem(Product product) {
     if (!isInStock(product)) return;
 
     if (isInCart(product.id)) {
@@ -16,6 +16,7 @@ class CartProvider with ChangeNotifier {
     } else {
       _addToCart(product, null);
     }
+
     notifyListeners();
   }
 
@@ -31,7 +32,7 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void _addToCart(Meal product, int? quantity) {
+  void _addToCart(Product product, int? quantity) {
     _items.putIfAbsent(
       product.id,
       () => CartItem(product: product, quantity: quantity ?? 1),
@@ -40,6 +41,7 @@ class CartProvider with ChangeNotifier {
 
   void increaseQuantity(String productId) {
     if (!isInCart(productId)) return;
+
     final item =
         _items.entries.firstWhere((element) => element.key == productId).value;
 
@@ -57,7 +59,7 @@ class CartProvider with ChangeNotifier {
     return _items.containsKey(productId);
   }
 
-  bool isInStock(Meal product) {
+  bool isInStock(Product product) {
     return product.quantity > 1 && itemQuantity(product.id) < product.quantity;
   }
 

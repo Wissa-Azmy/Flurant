@@ -14,7 +14,7 @@ enum Affordability {
 
 enum Brand { apple, samsung, sony }
 
-class Meal with ChangeNotifier {
+class Product with ChangeNotifier {
   final String id;
   final List<String> categories;
   final String title;
@@ -34,7 +34,7 @@ class Meal with ChangeNotifier {
   int quantity;
   bool isFavourite;
 
-  Meal(
+  Product(
       {required this.id,
       required this.categories,
       required this.title,

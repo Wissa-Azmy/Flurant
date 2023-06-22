@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/simple_list.dart';
 import '../components/text_capsule.dart';
-import '../models/meal.dart';
+import '../models/product.dart';
 
 class ItemDetailScreen extends StatelessWidget {
   static const String routeName = '/itemDetail';
@@ -11,10 +11,10 @@ class ItemDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final meal = ModalRoute.of(context)?.settings.arguments as Meal;
+    final product = ModalRoute.of(context)?.settings.arguments as Product;
 
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title)),
+      appBar: AppBar(title: Text(product.title)),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -37,7 +37,7 @@ class ItemDetailScreen extends StatelessWidget {
                   color: Colors.lightBlueAccent,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: SimpleList(items: meal.ingredients)),
+                child: SimpleList(items: product.ingredients)),
             const TextCapsule('Steps'),
             Container(
               height: 300,
@@ -47,7 +47,7 @@ class ItemDetailScreen extends StatelessWidget {
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: SimpleList(items: meal.steps),
+              child: SimpleList(items: product.steps),
             )
           ],
         ),

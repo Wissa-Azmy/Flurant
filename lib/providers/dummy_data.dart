@@ -3,63 +3,63 @@
 import 'package:flutter/material.dart';
 
 import '../models/category.dart';
-import '../models/meal.dart';
+import '../models/product.dart';
 
 var DUMMY_CATEGORIES = [
-  Category(
+  const Category(
     id: 'c1',
     title: 'Hand Tools',
     color: Colors.purple,
   ),
-  Category(
+  const Category(
     id: 'c2',
     title: 'New',
     color: Colors.red,
   ),
-  Category(
+  const Category(
     id: 'c3',
     title: 'E-Bikes',
     color: Colors.orange,
   ),
-  Category(
+  const Category(
     id: 'c4',
     title: 'Smart',
     color: Colors.amber,
   ),
-  Category(
+  const Category(
     id: 'c5',
     title: 'Used',
     color: Colors.blue,
   ),
-  Category(
+  const Category(
     id: 'c6',
     title: 'Exotic',
     color: Colors.green,
   ),
-  Category(
+  const Category(
     id: 'c7',
     title: 'Spare Parts',
     color: Colors.lightBlue,
   ),
-  Category(
+  const Category(
     id: 'c8',
     title: 'Computers & Laptops',
     color: Colors.lightGreen,
   ),
-  Category(
+  const Category(
     id: 'c9',
     title: 'E-Scooters',
     color: Colors.pink,
   ),
-  Category(
+  const Category(
     id: 'c10',
     title: 'Phones',
     color: Colors.teal,
   ),
 ];
 
-final DUMMY_MEALS = [
-  Meal(
+final DUMMY_PRODUCTS = [
+  Product(
     id: 'm1',
     categories: [
       'c1',
@@ -95,7 +95,7 @@ final DUMMY_MEALS = [
     isVegetarian: true,
     isLactoseFree: true,
   ),
-  Meal(
+  Product(
     id: 'm2',
     categories: [
       'c2',
@@ -126,7 +126,7 @@ final DUMMY_MEALS = [
     isLactoseFree: false,
     quantity: 13,
   ),
-  Meal(
+  Product(
     id: 'm3',
     categories: [
       'c2',
@@ -161,7 +161,7 @@ final DUMMY_MEALS = [
     isLactoseFree: true,
     quantity: 15,
   ),
-  Meal(
+  Product(
     id: 'm4',
     categories: [
       'c4',
@@ -199,7 +199,7 @@ final DUMMY_MEALS = [
     isLactoseFree: false,
     quantity: 5,
   ),
-  Meal(
+  Product(
     id: 'm5',
     categories: [
       'c2'
@@ -237,7 +237,7 @@ final DUMMY_MEALS = [
     isVegetarian: true,
     isLactoseFree: true,
   ),
-  Meal(
+  Product(
     id: 'm6',
     categories: [
       'c6',
@@ -276,7 +276,7 @@ final DUMMY_MEALS = [
     isLactoseFree: false,
     quantity: 20,
   ),
-  Meal(
+  Product(
     id: 'm7',
     categories: [
       'c7',
@@ -310,7 +310,7 @@ final DUMMY_MEALS = [
     isLactoseFree: false,
     quantity: 25,
   ),
-  Meal(
+  Product(
     id: 'm8',
     categories: [
       'c8',
@@ -346,7 +346,7 @@ final DUMMY_MEALS = [
     isLactoseFree: true,
     quantity: 17,
   ),
-  Meal(
+  Product(
     id: 'm9',
     categories: [
       'c9',
@@ -398,7 +398,7 @@ final DUMMY_MEALS = [
     isLactoseFree: false,
     quantity: 18,
   ),
-  Meal(
+  Product(
     id: 'm10',
     categories: [
       'c2',

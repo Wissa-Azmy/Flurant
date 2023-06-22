@@ -1,6 +1,6 @@
 import 'package:flurant/common/app.dart';
 import 'package:flurant/models/category.dart';
-import 'package:flurant/screens/meals_screen/meals_screen.dart';
+import 'package:flurant/screens/products_screen/products_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -9,7 +9,7 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({Key? key, required this.category}) : super(key: key);
 
   void selectCategory(BuildContext context) {
-    Navigator.of(context).pushNamed(MealsScreen.routeName, arguments: category);
+    Navigator.of(context).pushNamed(ProductsScreen.routeName, arguments: category);
   }
 
   @override

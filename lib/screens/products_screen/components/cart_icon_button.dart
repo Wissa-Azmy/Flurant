@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../models/meal.dart';
+import '../../../models/product.dart';
 import '../../../providers/cart_provider.dart';
 import '../../../components/badge.dart';
 
 class CartIconButton extends StatelessWidget {
-  final Meal meal;
-  const CartIconButton({Key? key, required this.meal}) : super(key: key);
+  final Product product;
+  const CartIconButton({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _cartProvider = Provider.of<CartProvider>(context);
 
     return InkWell(
-      onTap: () => _cartProvider.isInStock(meal)
-          ? _cartProvider.addItem(meal)
+      onTap: () => _cartProvider.isInStock(product)
+          ? _cartProvider.addItem(product)
           : showDialog(
               context: context,
               builder: (ctx) => AlertDialog(
@@ -33,11 +33,11 @@ class CartIconButton extends StatelessWidget {
         width: 70,
         height: 70,
         margin: const EdgeInsets.all(8.0),
-        child: _cartProvider.itemQuantity(meal.id) > 0
+        child: _cartProvider.itemQuantity(product.id) > 0
             ? AppBadge(
-                value: _cartProvider.itemQuantity(meal.id).toString(),
+                value: _cartProvider.itemQuantity(product.id).toString(),
                 child: Icon(
-                  _cartProvider.isInCart(meal.id)
+                  _cartProvider.isInCart(product.id)
                       ? Icons.shopping_cart
                       : Icons.shopping_cart_outlined,
                   size: 32,
@@ -45,11 +45,11 @@ class CartIconButton extends StatelessWidget {
                 ),
               )
             : Icon(
-                _cartProvider.isInCart(meal.id)
+                _cartProvider.isInCart(product.id)
                     ? Icons.shopping_cart
                     : Icons.shopping_cart_outlined,
                 size: 32,
-                color: _cartProvider.isInStock(meal) ? Colors.blue : Colors.grey,
+                color: _cartProvider.isInStock(product) ? Colors.blue : Colors.grey,
               ),
       ),
     );

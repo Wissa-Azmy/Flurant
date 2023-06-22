@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../models/meal.dart';
+import '../../../models/product.dart';
 import '../../item_detail_screen.dart';
 import '../../../components/card_image.dart';
 import '../../../components/card_title_strip.dart';
@@ -11,10 +11,10 @@ import '../../../components/info_icon.dart';
 import 'cart_icon_button.dart';
 import 'favourite_icon_button.dart';
 
-class MealItem extends StatelessWidget {
-  MealItem({Key? key}) : super(key: key);
+class ProductItem extends StatelessWidget {
+  ProductItem({Key? key}) : super(key: key);
 
-  void selectItem(BuildContext context, Meal meal) {
+  void selectItem(BuildContext context, Product meal) {
     Navigator.of(context).pushNamed(
       ItemDetailScreen.routeName,
       arguments: meal,
@@ -23,10 +23,10 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _meal = Provider.of<Meal>(context, listen: false);
+    final _product = Provider.of<Product>(context, listen: false);
 
     return InkWell(
-      onTap: () => selectItem(context, _meal),
+      onTap: () => selectItem(context, _product),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 5,
@@ -35,14 +35,14 @@ class MealItem extends StatelessWidget {
           children: [
             Stack(
               children: [
-                CardImage(imageUrl: _meal.imageUrl),
-                CardTitleStrip(title: _meal.title),
-                Consumer<Meal>(
+                CardImage(imageUrl: _product.imageUrl),
+                CardTitleStrip(title: _product.title),
+                Consumer<Product>(
                   builder: (BuildContext context, meal, Widget? child) => Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      FavouriteIconButton(meal: meal),
-                      CartIconButton(meal: meal),
+                      FavouriteIconButton(product: meal),
+                      CartIconButton(product: meal),
                     ],
                   ),
                 ),
@@ -53,11 +53,11 @@ class MealItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  InfoIcon(Icons.schedule, text: '${_meal.duration} min'),
-                  Consumer<Meal>(
+                  InfoIcon(Icons.schedule, text: '${_product.duration} min'),
+                  Consumer<Product>(
                     builder: (__, meal, _) => InfoIcon(Icons.work, text: meal.quantity.toString()),
                   ),
-                  InfoIcon(Icons.attach_money, text: _meal.retailPrice.toString()),
+                  InfoIcon(Icons.attach_money, text: _product.retailPrice.toString()),
                 ],
               ),
             )

@@ -6,7 +6,7 @@ import 'package:flurant/screens/admin_screens/manage_categories/add_category_for
 import 'package:flurant/screens/categories_screen/categories_screen.dart';
 import 'package:flurant/screens/admin_screens/all_orders_screen.dart';
 import 'package:flurant/screens/item_detail_screen.dart';
-import 'package:flurant/screens/meals_screen/meals_screen.dart';
+import '../screens/products_screen/products_screen.dart';
 import 'package:flurant/screens/tab_bar_screen/tab_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +14,7 @@ import 'package:provider/single_child_widget.dart';
 
 import '../providers/cart_provider.dart';
 import '../providers/categories_provider.dart';
-import '../providers/meals_provider.dart';
+import '../providers/products_provider.dart';
 import '../providers/orders_provider.dart';
 
 class App {
@@ -25,7 +25,7 @@ class App {
 // MARK: - App Providers
   static List<SingleChildWidget> providers = [
     ChangeNotifierProvider(create: (_) => CategoriesProvider()),
-    ChangeNotifierProvider(create: (_) => MealsProvider()),
+    ChangeNotifierProvider(create: (_) => ProductsProvider()),
     ChangeNotifierProvider(create: (_) => CartProvider()),
     ChangeNotifierProvider(create: (_) => OrdersProvider())
   ];
@@ -82,9 +82,9 @@ class App {
 
 // MARK: - Routes
   static final Map<String, Widget Function(BuildContext)> routes = {
-    '/': (conetxt) => const TabBarScreen(),
+    '/': (context) => const TabBarScreen(),
     CartScreen.routeName: (context) => CartScreen(),
-    MealsScreen.routeName: (context) => const MealsScreen(),
+    ProductsScreen.routeName: (context) => const ProductsScreen(),
     AddProductForm.routeName: (context) => const AddProductForm(),
     AddCategoryForm.routeName: (context) => const AddCategoryForm(),
     AllOrdersScreen.routeName: (context) => const AllOrdersScreen(),
