@@ -34,7 +34,7 @@ class CartIconButton extends StatelessWidget {
         height: 70,
         margin: const EdgeInsets.all(8.0),
         child: _cartProvider.itemQuantity(meal.id) > 0
-            ? Badge(
+            ? AppBadge(
                 value: _cartProvider.itemQuantity(meal.id).toString(),
                 child: Icon(
                   _cartProvider.isInCart(meal.id)

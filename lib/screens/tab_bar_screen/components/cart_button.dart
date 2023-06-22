@@ -15,7 +15,7 @@ class CartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<CartProvider>(
-      builder: (_, cartProvider, child) => Badge(
+      builder: (_, cartProvider, child) => AppBadge(
         child: child!,
         value: cartProvider.itemsCount.toString(),
       ),
